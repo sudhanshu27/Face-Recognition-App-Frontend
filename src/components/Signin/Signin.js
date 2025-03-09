@@ -31,8 +31,11 @@ class Signin extends React.Component {
         if (user.id) {
           this.props.loadUser(user);
           this.props.onRouteChange("home");
+        }else{
+          alert("Invalid credentials. Please try again.");
         }
-      });
+      })
+      .catch(() => alert("Error connecting to server. Please try again."));
   };
 
   render() {
