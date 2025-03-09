@@ -37,8 +37,8 @@ class Register extends React.Component {
         if (user.id) {
           this.props.loadUser(user);
           this.props.onRouteChange("home");
-        } else if (data.error) {
-          alert(data.error);
+        } else if (user.error) {
+          alert(user.error);
         } else {
           alert("Registration failed. Please try again.");
         }
