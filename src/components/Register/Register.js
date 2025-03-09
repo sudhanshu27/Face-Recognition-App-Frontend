@@ -37,13 +37,13 @@ class Register extends React.Component {
         if (user.id) {
           this.props.loadUser(user);
           this.props.onRouteChange("home");
-        }else if (user === "User already exists") {
-        alert("This email is already registered. Try logging in.");
-      } else {
-        alert("Registration failed. Please try again.");
-      }
-    })
-    .catch(() => alert("Error connecting to server. Please try again."));
+        } else if (data.error) {
+          alert(data.error);
+        } else {
+          alert("Registration failed. Please try again.");
+        }
+      })
+      .catch(() => alert("Error connecting to server. Please try again."));
   };
 
   render() {
